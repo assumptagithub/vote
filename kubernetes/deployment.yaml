@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: munjo-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: munjo-app
+  template:
+    metadata:
+      labels:
+        app: munjo-app
+    spec:
+      containers:
+      - name: munjo-app
+        image: munjo185/munjo-app:latest
+        ports:
+        - containerPort: 80
+
